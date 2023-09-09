@@ -7,7 +7,7 @@ import java.io.*;
  * LibraryManagementSystem.java
  * This class contains the main method for the Library Management System program.
  * It allows users to interact with the library by adding, removing, and listing books.
- * The Library Management System (LMS)overall program objective is to create a console-based Java application designed to manage a library's collection of books. This project follows the Software Development Life Cycle (SDLC) approach and provides functionalities for adding new books, removing books by ID, and listing all books in the library.
+ * The Library Management System (LMS) overall program objective is to create a console-based Java application designed to manage a library's collection of books. This project follows the Software Development Life Cycle (SDLC) approach and provides functionalities for adding new books, removing books by ID, and listing all books in the library.
  */
 public class LibraryManagementSystem {
     public static void main(String[] args) {
