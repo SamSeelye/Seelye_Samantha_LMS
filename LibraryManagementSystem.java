@@ -53,14 +53,13 @@ public class LibraryManagementSystem {
             // Display the menu
             System.out.println("\nMenu:");
             System.out.println("1. Add a new book");
-            System.out.println("2. Remove a book by ID");
+            System.out.println("2. Remove a book by barcode");
             System.out.println("3. Remove a book by title");
-            System.out.println("4. Remove a book by barcode");
-            System.out.println("5. Check out a book by title");
-            System.out.println("6. Check in a book by title");
-            System.out.println("7. List all books");
-            System.out.println("8. Save data to file");
-            System.out.println("9. Exit");
+            System.out.println("4. Check out a book by title");
+            System.out.println("5. Check in a book by title");
+            System.out.println("6. List all books");
+            System.out.println("7. Save data to file");
+            System.out.println("8. Exit");
             System.out.print("Enter your choice: ");
 
             try {
@@ -83,7 +82,7 @@ public class LibraryManagementSystem {
                         break;
                     case 2:
                         // Remove a book from the library by ID
-                        System.out.print("Enter the ID of the book to remove: ");
+                        System.out.print("Enter the barcode of the book to remove: ");
                         int removeId = scanner.nextInt();
                         scanner.nextLine();
                         library.removeBook(removeId);
@@ -95,35 +94,28 @@ public class LibraryManagementSystem {
                         library.removeBookByTitle(removeTitle);
                         break;
                     case 4:
-                        // Remove a book from the library by barcode
-                        System.out.print("Enter the barcode of the book to remove: ");
-                        int removeBarcode = scanner.nextInt();
-                        scanner.nextLine();
-                        library.removeBookByBarcode(removeBarcode);
-                        break;
-                    case 5:
                         // Check out a book by title
                         System.out.print("Enter the title of the book to check out: ");
                         String checkoutTitle = scanner.nextLine();
                         library.checkOutBook(checkoutTitle);
                         break;
-                    case 6:
+                    case 5:
                         // Check in a book by title
                         System.out.print("Enter the title of the book to check in: ");
                         String checkinTitle = scanner.nextLine();
                         library.checkInBook(checkinTitle);
                         break;
-                    case 7:
+                    case 6:
                         // List all books in the library
                         library.listBooks();
                         break;
-                    case 8:
+                    case 7:
                         // Save data to a file
                         System.out.print("Enter the file path to save data: ");
                         String filePath = scanner.nextLine();
                         library.saveDataToFile(filePath);
                         break;
-                    case 9:
+                    case 8:
                         // Exit the program
                         System.out.println("Exiting the program.");
                         // Save the updated data to the text file before exiting

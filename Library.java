@@ -1,12 +1,10 @@
 package lms;
-import java.util.ArrayList;
-import java.util.List;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+
+import java.io.*;
+import java.util.*;
 
 /**
- Samantha Seelye, CEN3024C - 14835, 10/8/2023
+ * Samantha Seelye, CEN3024C - 14835, 10/8/2023
  * Software Development I
  *
  * This class represents a library that stores and manages a collection of books.
@@ -60,7 +58,7 @@ public class Library {
             books.remove(foundBook);
             System.out.println("Book removed: " + foundBook.getTitle());
         } else {
-            System.out.println("Book not found with ID: " + bookId);
+            System.out.println("Book not found with barcode: " + bookId);
         }
     }
 
@@ -86,33 +84,12 @@ public class Library {
     }
 
     /**
-     * Remove a book from the library by its barcode.
-     *
-     * @param barcode The barcode of the book to be removed.
-     */
-    public void removeBookByBarcode(int barcode) {
-        Book foundBook = null;
-        for (Book book : books) {
-            if (book.getId() == barcode) {
-                foundBook = book;
-                break;
-            }
-        }
-        if (foundBook != null) {
-            books.remove(foundBook);
-            System.out.println("Book removed: " + foundBook.getTitle());
-        } else {
-            System.out.println("Book not found with barcode: " + barcode);
-        }
-    }
-
-    /**
      * List all books in the library.
      */
     public void listBooks() {
         System.out.println("Printing the database:");
         for (Book book : books) {
-            System.out.println("ID: " + book.getId() + ", Title: " + book.getTitle() + ", Author: " + book.getAuthor());
+            System.out.println("ID: " + book.getId() + ", Title: " + book.getTitle() + ", Author: " + book.getAuthor() + ", Status: " + book.getStatus());
         }
     }
 
@@ -175,7 +152,7 @@ public class Library {
     public void saveDataToFile(String filePath) {
         try (PrintWriter writer = new PrintWriter(new FileWriter(filePath))) {
             for (Book book : books) {
-                writer.println(book.getId() + "," + book.getTitle() + "," + book.getAuthor());
+                writer.println(book.getId() + "," + book.getTitle() + "," + book.getAuthor() + "," + book.getBarcode() + "," + book.getStatus());
             }
             System.out.println("Data saved to file successfully.");
         } catch (IOException e) {
